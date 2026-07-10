@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Ayesha 🎂</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff69b4,#ffb6c1);
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+#login{
+margin-top:150px;
+}
+
+input{
+padding:12px;
+font-size:18px;
+border-radius:10px;
+border:none;
+}
+
+button{
+padding:12px 20px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#main{
+display:none;
+padding:20px;
+}
+
+.balloon{
+position:absolute;
+font-size:35px;
+animation:float 8s linear infinite;
+}
+
+.flower{
+position:absolute;
+font-size:25px;
+animation:fall 10s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-120vh);}
+}
+
+@keyframes fall{
+0%{transform:translateY(-50px);}
+100%{transform:translateY(100vh);}
+}
+
+h1{
+font-size:50px;
+text-shadow:0 0 15px white;
+}
+
+.message{
+font-size:22px;
+max-width:700px;
+margin:auto;
+line-height:1.8;
+}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+<h2>🔒 Enter Password</h2>
+<input type="password" id="pass" placeholder="Enter Password">
+<button onclick="checkPass()">Open Gift</button>
+<p id="msg"></p>
+</div>
+
+<div id="main">
+
+<h1>🎂 Happy Birthday Ayesha ❤️</h1>
+
+<div class="message">
+
+<p>
+Dear Sister Ayesha 💖
+</p>
+
+<p>
+May Allah bless you with happiness,
+success, good health and a beautiful life.
+May all your dreams come true and
+every day bring joy to your heart.
+</p>
+
+<p>
+You are an amazing sister and I am lucky
+to have you in my life.
+Thank you for your love, care and support.
+</p>
+
+<p>
+🎉 Happy Birthday Ayesha 🎉
+</p>
+
+<p>
+From Abdul Rehman ❤️
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+let attempts = 0;
+
+function checkPass(){
+
+let password = document.getElementById("pass").value;
+
+if(password === "1507"){
+
+document.getElementById("login").style.display="none";
+document.getElementById("main").style.display="block";
+
+for(let i=0;i<30;i++){
+
+let b=document.createElement("div");
+b.className="balloon";
+b.innerHTML="🎈";
+b.style.left=Math.random()*100+"%";
+b.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(b);
+
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+f.style.left=Math.random()*100+"%";
+f.style.animationDuration=(6+Math.random()*6)+"s";
+document.body.appendChild(f);
+}
+
+}else{
+
+attempts++;
+
+if(attempts>=3){
+
+document.body.innerHTML=
+"<h1 style='margin-top:200px'>🔒 ACCESS DENIED</h1>";
+
+}else{
+
+document.getElementById("msg").innerHTML=
+"❌ Wrong Password | Attempts Left: " + (3-attempts);
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
